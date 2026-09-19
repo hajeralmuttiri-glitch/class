@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>مسابقة أنواع المخططات الستة | صفحة الفرق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">📊</div>
+        <div>
+          <h1>مسابقة أنواع المخططات الستة</h1>
+          <span class="national-badge">🇸🇦 عزنا بطبعنا</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="timer-pill" id="timerPill" style="display:none;"></div>
+        <div class="stage-pill" id="stagePill">جاري التحميل...</div>
+      </div>
+    </div>
+
+    <div id="teamSelectSection">
+      <div class="card">
+        <h3>اختاري فريقك</h3>
+        <div class="team-select-grid" id="teamSelectGrid"></div>
+      </div>
+    </div>
+
+    <div id="mainSection" style="display:none;">
+      <div class="current-team-bar">
+        <strong id="myTeamLabel"></strong>
+        <button class="btn-secondary" id="changeTeamBtn">تغيير الفريق</button>
+      </div>
+
+      <!-- لوحة التعزيز / تقدم الفرق -->
+      <div class="card" id="leaderboardCard" style="margin-bottom:20px;">
+        <h3>🌟 لوحة تعزيز الفرق</h3>
+        <div id="leaderboardList"></div>
+      </div>
+
+      <!-- مرحلة الانتظار -->
+      <div id="panel-waiting" class="card" style="display:none;">
+        <h3>بانتظار بدء المسابقة من المعلمة 👩‍🏫</h3>
+        <p class="answer-text">استعدوا! سيبدأ العرض على الشاشة قريبًا.</p>
+      </div>
+
+      <!-- المرحلة 1: تعريف المخطط -->
+      <div id="panel-define" class="card" style="display:none;">
+        <h3>المرحلة الأولى</h3>
+        <div class="question-box">
+          بالتعاون مع مجموعتكم، استنتجن واكتبن <strong>تعريفًا</strong> لمخطط المعلومات البياني.
+        </div>
+        <label>إجابة المجموعة (تُكتب وتُحفظ مباشرة)</label>
+        <textarea id="defineText" rows="5" placeholder="اكتبن التعريف هنا..."></textarea>
+        <span id="defineSavedMsg" class="status-tag done" style="display:none;">تم الحفظ ✔</span>
+      </div>
+
+      <!-- المرحلة 2: مزايا المخطط -->
+      <div id="panel-advantages" class="card" style="display:none;">
+        <h3>المرحلة الثانية</h3>
+        <div class="question-box">
+          بالتعاون مع مجموعتكم، استنتجن <strong>مزايا</strong> مخطط المعلومات البياني.
+        </div>
+        <label>إجابة المجموعة (تُكتب وتُحفظ مباشرة)</label>
+        <textarea id="advantagesText" rows="5" placeholder="اكتبن المزايا هنا..."></textarea>
+        <span id="advantagesSavedMsg" class="status-tag done" style="display:none;">تم الحفظ ✔</span>
+      </div>
+
+      <!-- المرحلة 3: أسئلة أنواع المخططات -->
+      <div id="panel-quiz" class="card" style="display:none;">
+        <h3>سؤال فريقكم</h3>
+        <div class="question-box" id="myQuestionBox"></div>
+        <label>اختاري نوع المخطط الأنسب</label>
+        <div class="team-select-grid" id="answerOptions"></div>
+        <span id="answerSavedMsg" class="status-tag done" style="display:none;">تم إرسال الإجابة ✔</span>
+
+        <label for="justifyText" style="margin-top:14px;">بررن اختياركن</label>
+        <textarea id="justifyText" rows="3" placeholder="اكتبن سبب اختياركن هنا..."></textarea>
+        <span id="justifySavedMsg" class="status-tag done" style="display:none;">تم الحفظ ✔</span>
+      </div>
+
+      <!-- المرحلة 4: التصميم على Canva -->
+      <div id="panel-design" class="card" style="display:none;">
+        <h3>المرحلة الرابعة: صمّمي على Canva</h3>
+        <div class="question-box">
+          لديكم المعلومات الآتية:<br/><br/>
+          1139هـ — الدولة السعودية الأولى<br/>
+          1240هـ — الدولة السعودية الثانية<br/>
+          1319هـ — الدولة السعودية الثالثة<br/><br/>
+          <strong>مهمتكم:</strong> حوّلوا هذه المعلومات إلى مخطط معلومات بياني زمني باستخدام Canva، بحيث يستطيع القارئ فهم تسلسل تأسيس الدول السعودية الثلاث بمجرد النظر إلى التصميم.<br/><br/>
+          <strong>احرصوا على:</strong><br/>
+          • ترتيب المعلومات زمنيًا.<br/>
+          • وضوح النصوص والتواريخ.<br/>
+          • اختيار تصميم مناسب للمخطط الزمني.<br/>
+          • تنظيم العناصر والصور بطريقة تخدم المعلومات.<br/>
+          • إخراج بصري واضح وجذاب.<br/><br/>
+          <strong>🔧 قبل التسليم: المراجعة والتحسين الهندسي</strong><br/>
+          راجعوا تصميمكم كفريق، واسألوا أنفسكم: هل التصميم واضح؟ هل يمكن فهم المعلومات بسرعة؟ هل هناك عنصر يحتاج إلى تعديل أو حذف أو إعادة ترتيب؟<br/><br/>
+          ثم أجروا التحسينات اللازمة على التصميم قبل رفع النسخة النهائية.<br/><br/>
+          بعد التأكد من جودة العمل، ارفعوا النسخة النهائية على المنصة.
+        </div>
+        <p class="status-tag pending" style="display:inline-block;">⚠ ممنوع كتابة اسم أو رمز فريقكم داخل التصميم — أي مخالفة تُستبعد المجموعة فورًا</p>
+        <label>رفع التصميم</label>
+        <div class="file-drop">
+          <input type="file" id="fileInput" accept="image/*" />
+        </div>
+        <img id="uploadPreview" class="upload-thumb" style="display:none;" />
+        <span id="uploadMsg" class="status-tag" style="display:none;"></span>
+      </div>
+
+      <!-- معرض التصاميم والتصويت -->
+      <div id="panel-gallery_voting" class="card" style="display:none;">
+        <h3>معرض التصاميم — صوّتي لأفضل تصميم (غير تصميم فريقكم)</h3>
+        <div class="question-box" id="criteriaBox"></div>
+        <div class="grid" id="galleryGrid" style="margin:16px 0;"></div>
+        <span id="voteMsg" class="status-tag done" style="display:none;">تم التصويت ✔</span>
+      </div>
+
+      <!-- مرحلة النتائج -->
+      <div id="panel-results" class="card" style="display:none;">
+        <h3>النتيجة النهائية</h3>
+        <p class="answer-text">شاهدوا النتيجة النهائية على الشاشة أمامكم 🎉</p>
+      </div>
+    </div>
+
+    <footer class="note">تُحفظ جميع الإجابات والنقاط والأصوات مباشرة ويمكن للمعلمة رؤيتها فورًا.</footer>
+  </div>
+
+  <script type="module" src="student.js"></script>
+</body>
+</html>
