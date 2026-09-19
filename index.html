@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>مسابقة أنواع المخططات الستة | صفحة الفرق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">📊</div>
+        <div>
+          <h1>مسابقة أنواع المخططات الستة</h1>
+          <span>صفحة الفِرق</span>
+        </div>
+      </div>
+      <div class="stage-pill" id="stagePill">جاري التحميل...</div>
+    </div>
+
+    <div id="teamSelectSection">
+      <div class="card">
+        <h3>اختاري فريقك</h3>
+        <div class="team-select-grid" id="teamSelectGrid"></div>
+      </div>
+    </div>
+
+    <div id="mainSection" style="display:none;">
+      <div class="current-team-bar">
+        <strong id="myTeamLabel"></strong>
+        <button class="btn-secondary" id="changeTeamBtn">تغيير الفريق</button>
+      </div>
+
+      <!-- مرحلة الانتظار -->
+      <div id="panel-waiting" class="card" style="display:none;">
+        <h3>بانتظار بدء المسابقة من المعلمة 👩‍🏫</h3>
+        <p class="answer-text">استعدوا! سيبدأ العرض على الشاشة قريبًا.</p>
+      </div>
+
+      <!-- مرحلة الشرح -->
+      <div id="panel-explain" class="card" style="display:none;">
+        <h3>سؤال فريقكم</h3>
+        <div class="question-box" id="myQuestionBox"></div>
+
+        <label>اختاري الإجابة الصحيحة</label>
+        <div class="team-select-grid" id="answerOptions"></div>
+        <span id="answerSavedMsg" class="status-tag done" style="display:none;">تم إرسال الإجابة ✔</span>
+
+        <hr style="border-color: var(--border); width:100%;" />
+
+        <label>رفع العمل من Canva (صورة التصميم)</label>
+        <div class="file-drop">
+          <input type="file" id="fileInput" accept="image/*" />
+        </div>
+        <img id="uploadPreview" class="upload-thumb" style="display:none;" />
+        <span id="uploadMsg" class="status-tag" style="display:none;"></span>
+      </div>
+
+      <!-- مرحلة التصويت -->
+      <div id="panel-voting" class="card" style="display:none;">
+        <h3>صوتوا لأفضل تصميم (غير فريقكم)</h3>
+        <label for="voteSelect">اختاري الفريق</label>
+        <select id="voteSelect"></select>
+        <button class="btn-primary" id="voteBtn">تصويت</button>
+        <span id="voteMsg" class="status-tag done" style="display:none;">تم التصويت ✔</span>
+      </div>
+
+      <!-- مرحلة النتائج -->
+      <div id="panel-results" class="card" style="display:none;">
+        <h3>النتيجة النهائية</h3>
+        <p class="answer-text">شاهدوا النتيجة النهائية على الشاشة أمامكم 🎉</p>
+      </div>
+    </div>
+
+    <footer class="note">تُحفظ جميع الإجابات والنقاط والأصوات مباشرة ويمكن للمعلمة رؤيتها فورًا.</footer>
+  </div>
+
+  <script type="module" src="js/student.js"></script>
+</body>
+</html>
